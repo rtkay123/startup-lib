@@ -4,7 +4,6 @@ import { type ILoggerService } from '../interfaces';
 import { type onMessageFunction } from '../types/onMessageFunction';
 import { type IStartupService } from '..';
 export declare class NatsService implements IStartupService {
-    #private;
     server: {
         servers: string;
     };
@@ -13,6 +12,7 @@ export declare class NatsService implements IStartupService {
     functionName: string;
     NatsConn?: NatsConnection;
     logger?: ILoggerService | Console;
+    schema: <TDoc = any>(doc: TDoc) => any;
     /**
      * Initialize Nats consumer, supplying a callback function to call every time a new message comes in.
      *
